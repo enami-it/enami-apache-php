@@ -13,8 +13,8 @@ RUN tar zx -f wordpress.tar.gz
 RUN mv wordpress/* .
 RUN rm -r wordpress wordpress.tar.gz
 
-FROM base as apache-duplicator
-COPY duplicator_data .
+FROM base as apache-no-content
+COPY html .
 
 FROM apache-${BUILD_MODE} as final
 RUN chown -R www-data: .;
