@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  database:
+    image: mysql:${MYSQL_VERSION:-8.3.0}
+    # command: '--authentication_policy=caching_sha2_password'
+    command: ${MYSQL_COMMAND:---default-authentication-plugin=mysql_native_password}
+    volumes:
+      - database_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  server:
+    build:
+      context: .
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.0}
+        WORDPRESS_VERSION: ${WORDPRESS_VERSION:-6.4.3}
+        BUILD_MODE: ${BUILD_MODE:-wordpress}
+    image: server:latest
+    volumes:
+      - server_data:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - ${APACHE_PORT:-80}:80
+    restart: always
+volumes:
+  database_data:
+  server_data:
