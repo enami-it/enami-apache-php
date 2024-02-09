@@ -1,4 +1,4 @@
-## Enami SEO dev
+## Enami Apache PHP
 
 This folder provides `docker compose` files for a local deployment of an apache server with PHP.
 
