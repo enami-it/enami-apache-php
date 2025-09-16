@@ -19,8 +19,8 @@ services:
       context: .
       args:
         PHP_VERSION: ${PHP_VERSION:-8.0}
-        WORDPRESS_VERSION: ${WORDPRESS_VERSION:-6.4.3}
-        BUILD_MODE: ${BUILD_MODE:-no-content}
+        WORDPRESS_VERSION: ${WORDPRESS_VERSION:-6.8.2}
+        BUILD_MODE: ${BUILD_MODE:-wordpress}
     image: server:latest
     volumes:
       - server_data:/var/www/html
