@@ -49,6 +49,8 @@ mv enami-apache-php/ <NAME>
 echo "NAME=<NAME>\nHOSTNAME=<HOSTNAME>" > <NAME>/.env
 ```
 
+Finally, manually edit `server` name with `<NAME>-server`
+
 ## Troubleshoot
 
 If you get "*The response is not a valid JSON response*" error message, SSH into running server container and execute the following:
