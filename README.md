@@ -27,7 +27,7 @@ Database configuration:
 
 ## Server configuration
 
-You can setup an AWS machine (`t3a.small`) via:
+You can setup an AWS machine (`t3a.medium`) via:
 
 ```sh
 sudo apt-get update
@@ -45,6 +45,8 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 git clone https://github.com/enami-it/enami-apache-php.git
+mv enami-apache-php/ <NAME>
+echo "NAME=<NAME>\nHOSTNAME=<HOSTNAME>" > <NAME>/.env
 ```
 
 ## Troubleshoot
