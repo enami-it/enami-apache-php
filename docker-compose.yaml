@@ -22,11 +22,10 @@ services:
         WORDPRESS_VERSION: ${WORDPRESS_VERSION:-6.8.2}
         BUILD_MODE: ${BUILD_MODE:-wordpress}
     image: server:latest
-    ports:
-      - 443:443
     volumes:
       - server_data:/var/www/html
       - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./.htaccess:/var/www/html/.htaccess
     restart: always
     networks:
       - default_traefik
