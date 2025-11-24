@@ -19,4 +19,4 @@ COPY html .
 FROM apache-${BUILD_MODE} AS final
 RUN chown -R www-data: .;
 
-EXPOSE 80
+EXPOSE 80 443
