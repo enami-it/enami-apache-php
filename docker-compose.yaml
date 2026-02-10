@@ -32,9 +32,9 @@ services:
       - default
     labels:
       - traefik.enable=true
-      - traefik.http.routers.${NAME}-main.rule=Host(`${HOSTNAME}`)
-      - traefik.http.routers.${NAME}-main.entrypoints=websecure
-      - traefik.http.routers.${NAME}-main.tls.certresolver=certresolver
+      - traefik.http.routers.${NAME}-server.rule=Host(`${HOSTNAME}`)
+      - traefik.http.routers.${NAME}-server.entrypoints=websecure
+      - traefik.http.routers.${NAME}-server.tls.certresolver=certresolver
 volumes:
   database_data:
   server_data:
